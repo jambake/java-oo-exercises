@@ -47,5 +47,6 @@ public class Fraction
 	{
 		Fraction f1 = new Fraction(2, 4);
 		Fraction f2 = new Fraction(3, 6);
+		
 	}
 }
