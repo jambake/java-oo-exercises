@@ -2,65 +2,55 @@ package studio2;
 
 public class Rectangle
 {
-	private int length;
-	private int width;
-	private int area;
-	private int perim;
-	
+	private int length, width;
+
 	public Rectangle(int length, int width)
 	{
 		this.length = length;
 		this.width = width;
-		this.area = length * width;
-		this.perim = (length * 2) + (width * 2);
 	}
 
-	public int getLength()
+	public int getArea()
 	{
-		return length;
+		return this.length*this.width;
 	}
 
-	public int getWidth()
+	public int getPerimeter()
 	{
-		return width;
+		return (this.length*2) + (this.width*2);
 	}
 
-	public String getIsSquare()
+
+	public boolean isSmaller(Rectangle n)
 	{
-		if (length == width)
+		if(n.getArea() > this.getArea())
 		{
-			return "Is a square.";
+			System.out.println("I am smaller!");
+			return true;
+		} else
+		{
+			System.out.println("I am larger!");
+			return false;
+		}
+	}
+
+	public boolean isSquare()
+	{
+		if (this.length == this.width)
+		{
+			System.out.println("I am a square!");
+			return true;
 		} 
 		else
 		{
-			return "Is not a square.";
+			System.out.println("I am a rectangle!");
+			return false;
 		}
 	}
-	
-//	public Boolean getIsBigger()
-//	{
-//		if (r1.area > r2.area)
-//		{
-//			return true;
-//		} else
-//		{
-//			return false;
-//		}
-//	}
-	
-	public void setLength(int newLength)
-	{
-		this.length = newLength;
-	}
 
-	public void setWidth(int newWidth)
-	{
-		this.width = newWidth;
-	}
-	
 	public String toString()
 	{
-		return "Length: " + this.length + " Width: " + this.width + " Area: " + this.area + " Perimeter: " + this.perim;
+		return "Length: " + this.length + " Width: " + this.width + " Area: " + getArea() + " Perimeter: " + getPerimeter();
 	}
 	
 	public static void main(String[] args)
@@ -69,7 +59,6 @@ public class Rectangle
 		Rectangle r2 = new Rectangle(4, 6);
 		System.out.println(r1);
 		System.out.println(r2);
-		System.out.println(r1.getIsSquare());
-		
+		r1.isSquare();		
 	}
 }
