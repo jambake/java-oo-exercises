@@ -1,5 +1,3 @@
-//package pset9;
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -83,145 +81,118 @@ public class StudentAndCourseTest extends TestCase {
 	@Test
 	public void testComputeTuition() {
 		Student s = new Student("D", "S", 1);
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0, s.computeTuition());
+			assertEquals("Compute tution not working properly", (i+1) * 1333.33, s.computeTuition());
 		}
 
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*2, s.computeTuition());
-		}
+		s.submitGrade(0, 1);
+		assertEquals("Compute tution not working properly", 20000.0, s.computeTuition());
 
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 14; i++) {
 			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*3, s.computeTuition());
-		}
-
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*4, s.computeTuition());
-		}
-
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*5, s.computeTuition());
-		}
-
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*6, s.computeTuition());
-		}
-
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*7, s.computeTuition());
-		}
-
-		for (int i = 0; i < 15; i++) {
-			s.submitGrade(0, 1);
-			assertEquals("Compute tution not working properly", 20000.0*8, s.computeTuition());
+			assertEquals("Compute tution not working properly", 1333.33 * (i+1) + 20000.0, s.computeTuition());
 		}
 	}
 
-//	@Test
-//	public void testCreateLegacy() {
-//		for(int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			double b =  (Math.random() * 5000);
-//			Student s = new Student("" + a, "" + b, 1);
-//			double a2 =  (Math.random() * 5000);
-//			double b2 =  (Math.random() * 5000);
-//			Student ss = new Student("" + a2, "" + b2, 2);
-//			int c = (int)(Math.random() * 120 + 1);
-//			double g = Math.round(Math.random() * 4000) / 1000.0;
-//			s.submitGrade(g, c);
-//			int c2 = (int)(Math.random() * 120 + 1);
-//			double g2 = Math.round(Math.random() * 4000) / 1000.0;
-//			ss.submitGrade(g2, c2);
-//			Student bb = s.createLegacy(ss);
-//			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
-//			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
-//			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
-//			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
-//
-//			//Make sure parents haven't changed
-//			assertEquals("createBaby should not alter the parents", a + " " + b, s.getName());
-//			assertEquals("createBaby should not alter the parents", g, s.getGPA());
-//			assertEquals("createBaby should not alter the parents", c, s.getCredits());
-//
-//			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
-//			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
-//			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
-//
-//		}
-//	}
-//
-//	@Test
-//	public void testStudentToString() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			double b =  (Math.random() * 5000);
-//			int c = (int)Math.random() * 500000;
-//			Student s = new Student("" + a, "" + b, c);
-//			assertTrue("student toString does not contain entire student name", s.toString().contains("" + a));
-//			assertTrue("student toString does not contain entire student name", s.toString().contains("" + b));
-//			assertTrue("student toString does not contain student ID", s.toString().contains("" + c));
-//		}
-//	}
-//
-//
-//
-//
-//
-//	// TESTING COURSE CLASS HERE . . . FEEL FREE TO WRITE YOUR OWN, BUT DON'T CHANGE THIS ONE
-//	// once again, we are watching you
-//
-//	@Test
-//	public void testCourseInit() {
-//		Course c = new Course("CSE131", 1, 2);
-//		assertEquals("CSE131", c.getName());
-//		assertEquals(2, c.getRemainingSeats());
-//		for (int i = 0; i < 20; ++i) {
-//			double a =  (Math.random() * 5000);
-//			int s = (int)(Math.random() * 5000);
-//			Course c2 = new Course("" + a, s, s);
-//			assertEquals("course getName() not working, or name not being set properly", "" + a, c2.getName());
-//			assertEquals("course getRemainingSeats() not working, or seats not being set properly", s, c2.getRemainingSeats());
-//		}
-//	}
-//
-//	@Test
-//	public void testAddStudent() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			int s = (int)(Math.random() * 50);
-//			Course c = new Course("" + a, s, s);
-//
-//			for (int j = 0; j < s; j++) {
-//				String aa =  "" + (Math.random() * 5000);
-//				String b =  "" + (Math.random() * 5000);
-//				int cc = (int)Math.random() * 500000;
-//				Student s2 = new Student(aa, b, cc);
-//				boolean added = c.addStudent(s2);
-//				assertTrue("addStudent not working properly", added);
-//
-//				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
-//			}
-//
-//			//Try to add students, even though the class is full.
-//			for (int j = 0; j < s; j++) {
-//				String aa =  "" + (Math.random() * 5000);
-//				String b =  "" + (Math.random() * 5000);
-//				int cc = (int)Math.random() * 500000;
-//				Student s2 = new Student(aa, b, cc);
-//				boolean added = c.addStudent(s2);
-//
-//				assertTrue("addStudent not working properly: student added even though class was full", !added);
-//			}
-//		}
-//	}
-//
+	@Test
+	public void testCreateLegacy() {
+		for(int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			double b =  (Math.random() * 5000);
+			Student s = new Student("" + a, "" + b, 1);
+			double a2 =  (Math.random() * 5000);
+			double b2 =  (Math.random() * 5000);
+			Student ss = new Student("" + a2, "" + b2, 2);
+			int c = (int)(Math.random() * 120 + 1);
+			double g = Math.round(Math.random() * 4000) / 1000.0;
+			s.submitGrade(g, c);
+			int c2 = (int)(Math.random() * 120 + 1);
+			double g2 = Math.round(Math.random() * 4000) / 1000.0;
+			ss.submitGrade(g2, c2);
+			Student bb = s.createLegacy(ss);
+			assertTrue("create baby not setting name properly", bb.getName().contains(s.getName()) && bb.getName().contains(ss.getName()));
+			assertEquals("create baby not setting gpa properly", (g + g2) / 2, bb.getGPA(), 0.01);
+			assertEquals("create baby not setting credits properly", bb.getCredits(), Math.max(c, c2));
+			assertTrue("create baby not creating ID properly", bb.getStudentID() == s.getStudentID() + ss.getStudentID());
+
+			//Make sure parents haven't changed
+			assertEquals("createBaby should not alter the parents", a + " " + b, s.getName());
+			assertEquals("createBaby should not alter the parents", g, s.getGPA());
+			assertEquals("createBaby should not alter the parents", c, s.getCredits());
+
+			assertEquals("createBaby should not alter the parents", a2 + " " + b2, ss.getName());
+			assertEquals("createBaby should not alter the parents", g2, ss.getGPA());
+			assertEquals("createBaby should not alter the parents", c2, ss.getCredits());
+
+		}
+	}
+
+	@Test
+	public void testStudentToString() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			double b =  (Math.random() * 5000);
+			int c = (int)Math.random() * 500000;
+			Student s = new Student("" + a, "" + b, c);
+			assertTrue("student toString does not contain entire student name", s.toString().contains("" + a));
+			assertTrue("student toString does not contain entire student name", s.toString().contains("" + b));
+			assertTrue("student toString does not contain student ID", s.toString().contains("" + c));
+		}
+	}
+
+
+
+
+
+	// TESTING COURSE CLASS HERE . . . FEEL FREE TO WRITE YOUR OWN, BUT DON'T CHANGE THIS ONE
+	// once again, we are watching you
+
+	@Test
+	public void testCourseInit() {
+		Course c = new Course("CSE131", 1, 2);
+		assertEquals("CSE131", c.getName());
+		assertEquals(2, c.getRemainingSeats());
+		for (int i = 0; i < 20; ++i) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 5000);
+			Course c2 = new Course("" + a, s, s);
+			assertEquals("course getName() not working, or name not being set properly", "" + a, c2.getName());
+			assertEquals("course getRemainingSeats() not working, or seats not being set properly", s, c2.getRemainingSeats());
+		}
+	}
+
+	@Test
+	public void testAddStudent() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			int s = (int)(Math.random() * 50);
+			Course c = new Course("" + a, s, s);
+
+			for (int j = 0; j < s; j++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)Math.random() * 500000;
+				Student s2 = new Student(aa, b, cc);
+				boolean added = c.addStudent(s2);
+				assertTrue("addStudent not working properly", added);
+
+				assertEquals("seats not updated after adding a student", s - j - 1, c.getRemainingSeats());
+			}
+
+			//Try to add students, even though the class is full.
+			for (int j = 0; j < s; j++) {
+				String aa =  "" + (Math.random() * 5000);
+				String b =  "" + (Math.random() * 5000);
+				int cc = (int)Math.random() * 500000;
+				Student s2 = new Student(aa, b, cc);
+				boolean added = c.addStudent(s2);
+
+				assertTrue("addStudent not working properly: student added even though class was full", !added);
+			}
+		}
+	}
+
 //	@Test
 //	public void testAverageGPA() {
 //		for (int j = 0; j < 100; j++) {
@@ -243,18 +214,16 @@ public class StudentAndCourseTest extends TestCase {
 //			}
 //		}
 //	}
-//
-//	@Test
-//	public void testCourseToString() {
-//		for (int i = 0; i < 100; i++) {
-//			double a =  (Math.random() * 5000);
-//			int c = (int)Math.random() * 500000;
-//			Course cc = new Course("" + a, c, c);
-//			assertTrue("course toString does not contain course name", cc.toString().contains("" + a));
-//			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
-//		}
-//	}
-//
-//
+
+	@Test
+	public void testCourseToString() {
+		for (int i = 0; i < 100; i++) {
+			double a =  (Math.random() * 5000);
+			int c = (int)Math.random() * 500000;
+			Course cc = new Course("" + a, c, c);
+			assertTrue("course toString does not contain course name", cc.toString().contains("" + a));
+			assertTrue("course toString does not contain credits", cc.toString().contains("" + c));
+		}
+	}
 
 }
