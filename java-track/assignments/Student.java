@@ -6,7 +6,7 @@ public class Student
 	// Credits
 	// GPA
 	
-	private String firstName, lastName, classStanding;
+	protected String firstName, lastName, classStanding;
 	private int StudentID, credits;
 	private double GPA, qualityScore;
 	
@@ -84,8 +84,28 @@ public class Student
 		double tuition = 20000.0;
 		int semester = (int)credits / 15;
 		int leftOverCred = credits % 15;
-		tuitionTotal = (semester * tuition) + (leftOverCred * 1333.333);
+		tuitionTotal = (semester * tuition) + (leftOverCred * 1333.33);
 	
 		return tuitionTotal;
 	}
+
+	public Student createLegacy(Student x)
+	{
+		Student createBaby = new Student(x.getName(), this.getName(), x.getStudentID() + this.getStudentID());
+		createBaby.GPA = (x.getGPA() + this.getGPA()) / 2;
+		if (x.getCredits() > this.getCredits())
+		{
+			createBaby.credits = x.getCredits();
+		}
+		else
+			createBaby.credits = this.getCredits();
+		
+		return createBaby;
+	}
+	
+	public String toString()
+	{
+		return "Student Name: " + this.firstName + " " + this.lastName + " | " + "Student ID#: " + this.StudentID;
+	}
 }
+
