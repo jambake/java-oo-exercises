@@ -87,13 +87,13 @@ public class Course
 		return roster;
 	}
 	
-//	public double averageGPA(Student x)
-//	{	
-//		double gpaSum = 0.0;
-//		gpaSum += x.getGPA();
-//		averageGPA = gpaSum / this.remainingSeats;
-//		return this.averageGPA;
-//	}
+	public double averageGPA()
+	{	
+		double gpaSum = 0.0;
+		
+		averageGPA = gpaSum / this.remainingSeats;
+		return this.averageGPA;
+	}
 	
 	public String toString()
 	{
