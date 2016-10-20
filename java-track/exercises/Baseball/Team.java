@@ -41,6 +41,15 @@ public class Team {
 		Pitcher p = new Pitcher("Adam Wainwright", 50);
 		cards.addPlayer(fp, 15000000);
 		cards.addPlayer(p, 19500000);
+		
+		for (int i = 0; i < cards.roster.size(); i++)
+		{
+			for (int j = 0; j < 400; j++)
+			{
+				cards.roster.get(i).simulateAtBat();
+			}
+		}
+		
 		System.out.println(cards);
 		cards.listRoster();
 	}

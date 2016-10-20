@@ -1,6 +1,6 @@
 package Baseball;
 
-public class Player {
+public abstract class Player {
 	// attributes
 	// a baseball player has a name, number, salary, team
 	protected String name;
@@ -17,6 +17,8 @@ public class Player {
 		this.salary = 0;
 		this.currentTeam = null;
 	}
+	
+	public abstract void simulateAtBat();
 	
 	public void sign(Team newTeam, int newSalary){
 		updateTeam(newTeam);
