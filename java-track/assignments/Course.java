@@ -1,3 +1,5 @@
+import java.util.Objects;
+//import java.util.*;
 
 public class Course
 {
@@ -98,5 +100,24 @@ public class Course
 	public String toString()
 	{
 		return "Course Name: " + this.name + " " + "Credits: " + this.credits;
+	}
+	
+	
+	@Override
+	public boolean equals(Object o){
+		// self check
+		if(this == o)
+			return true;
+		// null check
+		if(o == null)
+			return false;
+		// type-check and cast
+		if(!(o instanceof Course))
+			return false;
+		
+		Course p = (Course) o;
+		
+		return Objects.equals(name, p.name) && Objects.equals(credits, p.credits) &&
+				Objects.equals(remainingSeats,  p.remainingSeats);
 	}
 }

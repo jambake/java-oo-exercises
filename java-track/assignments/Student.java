@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Student
 {
@@ -106,6 +107,25 @@ public class Student
 	public String toString()
 	{
 		return "Student Name: " + this.firstName + " " + this.lastName + " | " + "Student ID#: " + this.StudentID;
+	}
+	
+	
+	@Override
+	public boolean equals(Object o){
+		// self check
+		if(this == o)
+			return true;
+		// null check
+		if(o == null)
+			return false;
+		// type-check and cast
+		if(!(o instanceof Student))
+			return false;
+		
+		Student p = (Student) o;
+		
+		return Objects.equals(firstName, p.firstName) && Objects.equals(lastName, p.lastName) &&
+				Objects.equals(StudentID,  p.StudentID);
 	}
 }
 

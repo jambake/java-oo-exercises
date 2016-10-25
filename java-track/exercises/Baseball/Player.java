@@ -1,6 +1,6 @@
 package Baseball;
 
-//import java.utul.Objects;
+import java.util.Objects;
 //import java.util.*;
 
 public abstract class Player {
@@ -46,5 +46,24 @@ public abstract class Player {
 	
 	public String toString(){
 		return this.name + " number: " + this.number + " team: " + this.currentTeam.getName() + " salary: " + this.salary;
+	}
+	
+	@Override
+	public final boolean equals(Object o){
+		// self check
+		if(this == o)
+			return true;
+		// null check
+		if(o == null)
+			return false;
+		// type-check and cast
+		if(!(o instanceof Player))
+			return false;
+		
+		Player p = (Player) o;
+		//Pitcher Objects = new Pitcher("jon", 1);
+		
+		return Objects.equals(name, p.name) && Objects.equals(number, p.number) &&
+				Objects.equals(currentTeam,  p.currentTeam);
 	}
 }

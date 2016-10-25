@@ -1,13 +1,13 @@
 package javagram.filters;
 
 import java.awt.Color;
-
 import javagram.Picture;
 
-public class RedFilter {
+public class RedFilter implements Filter {
 
-	public Picture process(Picture original) {
-
+	Picture original;
+	
+	public Picture process() {
 		Picture processed = new Picture(original.width(), original.height());
 
 		//get each pixel one by one

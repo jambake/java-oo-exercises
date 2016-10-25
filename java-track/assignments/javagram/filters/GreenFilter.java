@@ -1,12 +1,11 @@
 package javagram.filters;
 
 import java.awt.Color;
-
 import javagram.Picture;
 
-public class GreenFilter {
-
-	public Picture process(Picture original) {
+public class GreenFilter implements Filter{
+	
+	public Picture process() {
 
 		Picture processed = new Picture(original.width(), original.height());
 
