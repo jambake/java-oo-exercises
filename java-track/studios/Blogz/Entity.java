@@ -1,6 +1,6 @@
 package Blogz;
 
-import java.util.Objects;
+//import java.util.Objects;
 
 public abstract class Entity
 {
@@ -18,20 +18,20 @@ public abstract class Entity
 	}
 	
 	
-	@Override
-	public boolean equals(Object o){
-		// self check
-		if(this == o)
-			return true;
-		// null check
-		if(o == null)
-			return false;
-		// type-check and cast
-		if(!(o instanceof User))
-			return false;
-		
-		User p = (User) o;
-		
-		return Objects.equals(username, p.username);
-	}
+//	@Override
+//	public boolean equals(Object o){
+//		// self check
+//		if(this == o)
+//			return true;
+//		// null check
+//		if(o == null)
+//			return false;
+//		// type-check and cast
+//		if(!(o instanceof User))
+//			return false;
+//		
+//		User p = (User) o;
+//		
+//		return Objects.equals(username, p.username);
+//	}
 }

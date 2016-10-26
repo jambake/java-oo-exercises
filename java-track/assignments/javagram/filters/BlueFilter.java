@@ -5,7 +5,10 @@ import java.awt.Color;
 
 public class BlueFilter implements Filter {
 	
-	public Picture process(Picture orignal) {
+	//Picture original;
+	
+	@Override
+	public Picture process(Picture original) {
 		Picture processed = new Picture(original.width(), original.height());
 
 		//get each pixel one by one

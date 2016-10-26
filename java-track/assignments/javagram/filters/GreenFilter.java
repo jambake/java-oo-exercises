@@ -5,7 +5,9 @@ import javagram.Picture;
 
 public class GreenFilter implements Filter{
 	
-	public Picture process() {
+	//Picture original;
+	@Override
+	public Picture process(Picture original) {
 
 		Picture processed = new Picture(original.width(), original.height());
 

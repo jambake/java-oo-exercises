@@ -3,7 +3,7 @@ package javagram.filters;
 import java.awt.Color;
 import javagram.Picture;
 
-public class RedFilter implements Filter {
+public class InvertFilter implements Filter{
 
 	//Picture original;
 	@Override
@@ -20,10 +20,9 @@ public class RedFilter implements Filter {
 				int r = c.getRed();
 				int g = c.getGreen();
 				int b = c.getBlue();
+			
 
-				int newRed = (r + g + b) / 3;
-
-				processed.set(i, j, new Color(newRed, 0, 0));
+				processed.set(i, j, new Color((255-r), (255-g), (255-b)));
 
 			}
 		}

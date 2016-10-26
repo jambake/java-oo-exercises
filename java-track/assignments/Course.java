@@ -18,7 +18,7 @@ public class Course
 		this.name = name;
 		this.credits = credits;
 		this.remainingSeats = remainingSeats;
-		this.roster = roster;
+		//this.roster = roster;
 		this.averageGPA = 0.0;
 	}
 
