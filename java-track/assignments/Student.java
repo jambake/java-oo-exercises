@@ -1,4 +1,4 @@
-import java.util.Objects;
+//import java.util.Objects;
 
 public class Student
 {
@@ -21,6 +21,12 @@ public class Student
 		this.GPA = 0.0;
 		this.qualityScore = 0.0;
 	}
+	public Student(String firstName, String lastName, int StudentID, int credits, double GPA){
+		this.firstName = firstName + " " + lastName;
+		this.StudentID = StudentID;
+		this.credits = credits;
+		this.GPA = GPA;
+	}
 	
 	// getters
 	public String getName()
@@ -37,18 +43,8 @@ public class Student
 	}
 	public double getGPA()
 	{
-		return this.GPA;
+		return GPA;
 	}
-	
-	// setters
-//	public void setCredits(int newCredits)
-//	{
-//		this.credits = newCredits;
-//	}
-//	public void setGPA(double newGPA)
-//	{
-//		this.GPA = newGPA;
-//	}
 	
 	public String getClassStanding()
 	{
@@ -110,22 +106,22 @@ public class Student
 	}
 	
 	
-	@Override
-	public boolean equals(Object o){
-		// self check
-		if(this == o)
-			return true;
-		// null check
-		if(o == null)
-			return false;
-		// type-check and cast
-		if(!(o instanceof Student))
-			return false;
-		
-		Student p = (Student) o;
-		
-		return Objects.equals(firstName, p.firstName) && Objects.equals(lastName, p.lastName) &&
-				Objects.equals(StudentID,  p.StudentID);
-	}
+//	@Override
+//	public boolean equals(Object o){
+//		// self check
+//		if(this == o)
+//			return true;
+//		// null check
+//		if(o == null)
+//			return false;
+//		// type-check and cast
+//		if(!(o instanceof Student))
+//			return false;
+//		
+//		Student p = (Student) o;
+//		
+//		return Objects.equals(firstName, p.firstName) && Objects.equals(lastName, p.lastName) &&
+//				Objects.equals(StudentID,  p.StudentID);
+//	}
 }
 

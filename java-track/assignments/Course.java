@@ -1,4 +1,4 @@
-import java.util.Objects;
+//import java.util.Objects;
 //import java.util.*;
 
 public class Course
@@ -10,16 +10,15 @@ public class Course
 	
 	private String name;
 	private int credits, remainingSeats;
-	private String[] roster;
+	private Student[] roster;
 	private double averageGPA;
 	
-	public Course(String name, int credits, int remainingSeats)
+	public Course(String name, int credits, int numSeats)
 	{
 		this.name = name;
 		this.credits = credits;
-		this.remainingSeats = remainingSeats;
-		//this.roster = roster;
-		this.averageGPA = 0.0;
+		this.remainingSeats = numSeats;
+		this.roster = new Student[numSeats];
 	}
 
 	public String getName()
@@ -37,7 +36,7 @@ public class Course
 		return remainingSeats;
 	}
 
-	public String[] getRoster()
+	public Student[] getRoster()
 	{
 		return roster;
 	}
@@ -47,20 +46,7 @@ public class Course
 		return averageGPA;
 	}
 
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-
-	public void setCredits(int credits)
-	{
-		this.credits = credits;
-	}
-
-	public void setRemainingSeats(int remainingSeats)
-	{
-		this.remainingSeats = remainingSeats;
-	}
+	
 
 	public boolean addStudent(Student x)
 	{
@@ -79,22 +65,31 @@ public class Course
 		}
 	}
 	
-	public String[] generateRoster()
+	public String generateRoster()
 	{
-		while (this.remainingSeats != 0)
-		{
-			for (int i = 0; i < this.remainingSeats; i++)
-			this.roster = new String[i];
+		String rosterStr = "";
+		for (int i = 0; i < roster.length; i++){
+			if(roster[i] != null){
+				rosterStr = rosterStr + roster[i].getName() + "\n";
+			}
 		}
-		return roster;
+		return rosterStr;
 	}
 	
 	public double averageGPA()
 	{	
 		double gpaSum = 0.0;
-		
-		averageGPA = gpaSum / this.remainingSeats;
-		return this.averageGPA;
+		int numStudents = 0;
+		for (int i = 0; i < roster.length; i++){
+			if (roster[i] != null){
+				gpaSum += roster[i].getGPA();
+				numStudents++;
+			}
+		}
+		System.out.println(gpaSum);
+		System.out.println(numStudents);
+
+		return gpaSum / numStudents;
 	}
 	
 	public String toString()
@@ -103,21 +98,21 @@ public class Course
 	}
 	
 	
-	@Override
-	public boolean equals(Object o){
-		// self check
-		if(this == o)
-			return true;
-		// null check
-		if(o == null)
-			return false;
-		// type-check and cast
-		if(!(o instanceof Course))
-			return false;
-		
-		Course p = (Course) o;
-		
-		return Objects.equals(name, p.name) && Objects.equals(credits, p.credits) &&
-				Objects.equals(remainingSeats,  p.remainingSeats);
-	}
+//	@Override
+//	public boolean equals(Object o){
+//		// self check
+//		if(this == o)
+//			return true;
+//		// null check
+//		if(o == null)
+//			return false;
+//		// type-check and cast
+//		if(!(o instanceof Course))
+//			return false;
+//		
+//		Course p = (Course) o;
+//		
+//		return Objects.equals(name, p.name) && Objects.equals(credits, p.credits) &&
+//				Objects.equals(remainingSeats,  p.remainingSeats);
+//	}
 }
