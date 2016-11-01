@@ -29,9 +29,14 @@ public class Javagram {
 				System.out.println("Image path (relative to " + dir + "):");
 				relPath = in.next();
 
+
 				String[] relPathParts = relPath.split(File.separator);
 				imagePath = dir + File.separator + String.join(File.separator, Arrays.asList(relPathParts));
 
+
+				
+				imagePath = dir + File.separator + relPath;
+				//refs/remotes/launchcode/master
 				picture = new Picture(imagePath);
 
 			} catch (RuntimeException e) {
