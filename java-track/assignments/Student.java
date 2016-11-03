@@ -88,16 +88,16 @@ public class Student
 
 	public Student createLegacy(Student x)
 	{
-		Student createBaby = new Student(x.getName(), this.getName(), x.getStudentID() + this.getStudentID());
-		createBaby.GPA = (x.getGPA() + this.getGPA()) / 2;
+		Student createStudent = new Student(x.getName(), this.getName(), x.getStudentID() + this.getStudentID());
+		createStudent.GPA = (x.getGPA() + this.getGPA()) / 2;
 		if (x.getCredits() > this.getCredits())
 		{
-			createBaby.credits = x.getCredits();
+			createStudent.credits = x.getCredits();
 		}
 		else
-			createBaby.credits = this.getCredits();
+			createStudent.credits = this.getCredits();
 		
-		return createBaby;
+		return createStudent;
 	}
 	
 	public String toString()
