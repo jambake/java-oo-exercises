@@ -50,20 +50,33 @@ public class Course
 
 	public boolean addStudent(Student x)
 	{
-		if (x.firstName + " " + x.lastName == this.getName())
+		if(this.remainingSeats == 0)
 		{
 			return false;
 		}
-		else if (this.remainingSeats == 0)
-		{
-			return false;
+		for (int i = 0; i < roster.length; i++) {
+			if (roster[i] != null && roster[i].getName() == x.getName()){
+				return false;
+			}
 		}
-		else
-		{
-			this.remainingSeats = remainingSeats - 1;
-			return true;
-		}
+		roster[roster.length - this.remainingSeats] = x;
+		remainingSeats--;
+		return true;
 	}
+//		if (x.firstName + " " + x.lastName == this.getName())
+//		{
+//			return false;
+//		}
+//		else if (this.remainingSeats == 0)
+//		{
+//			return false;
+//		}
+//		else
+//		{
+//			this.remainingSeats = remainingSeats - 1;
+//			return true;
+//		}
+	
 	
 	public String generateRoster()
 	{
