@@ -21,12 +21,12 @@ public class Student
 		this.GPA = 0.0;
 		this.qualityScore = 0.0;
 	}
-	public Student(String firstName, String lastName, int StudentID, int credits, double GPA){
-		this.firstName = firstName + " " + lastName;
-		this.StudentID = StudentID;
-		this.credits = credits;
-		this.GPA = GPA;
-	}
+//	public Student(String firstName, String lastName, int StudentID, int credits, double GPA){
+//		this.firstName = firstName + " " + lastName;
+//		this.StudentID = StudentID;
+//		this.credits = credits;
+//		this.GPA = GPA;
+//	}
 	
 	// getters
 	public String getName()

@@ -13,12 +13,12 @@ public class Course
 	private Student[] roster;
 	private double averageGPA;
 	
-	public Course(String name, int credits, int numSeats)
+	public Course(String name, int credits, int remainingSeats)
 	{
 		this.name = name;
 		this.credits = credits;
-		this.remainingSeats = numSeats;
-		this.roster = new Student[numSeats];
+		this.remainingSeats = remainingSeats;
+		this.roster = new Student[remainingSeats];
 	}
 
 	public String getName()
@@ -50,7 +50,7 @@ public class Course
 
 	public boolean addStudent(Student x)
 	{
-		if(this.remainingSeats == 0)
+		if(this.remainingSeats < 1)
 		{
 			return false;
 		}
@@ -59,7 +59,7 @@ public class Course
 				return false;
 			}
 		}
-		roster[roster.length - this.remainingSeats] = x;
+		roster[roster.length - getRemainingSeats()] = x;
 		remainingSeats--;
 		return true;
 	}
@@ -76,6 +76,7 @@ public class Course
 //			this.remainingSeats = remainingSeats - 1;
 //			return true;
 //		}
+//	}
 	
 	
 	public String generateRoster()
@@ -99,9 +100,6 @@ public class Course
 				numStudents++;
 			}
 		}
-		System.out.println(gpaSum);
-		System.out.println(numStudents);
-
 		return gpaSum / numStudents;
 	}
 	
