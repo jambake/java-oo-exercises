@@ -93,14 +93,20 @@ public class Course
 	public double averageGPA()
 	{	
 		double gpaSum = 0.0;
+		double averageGPA = 0.0;
 		int numStudents = 0;
+		double gpa = 0.0;
 		for (int i = 0; i < roster.length; i++){
 			if (roster[i] != null){
-				gpaSum += roster[i].getGPA();
+				gpa = roster[i].getGPA();
+				gpaSum += gpa;
 				numStudents++;
 			}
 		}
-		return gpaSum / numStudents;
+		
+		System.out.println("gpa: " + gpa + " | gpaSum: " + gpaSum + " | numStudents: " + numStudents);
+		averageGPA = gpaSum / numStudents;
+		return averageGPA;
 	}
 	
 	public String toString()
