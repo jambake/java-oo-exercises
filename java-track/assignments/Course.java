@@ -104,7 +104,7 @@ public class Course
 			}
 		}
 		
-		System.out.println("gpa: " + gpa + " | gpaSum: " + gpaSum + " | numStudents: " + numStudents);
+		//System.out.println("gpa: " + gpa + " | gpaSum: " + gpaSum + " | numStudents: " + numStudents);
 		averageGPA = gpaSum / numStudents;
 		return averageGPA;
 	}
