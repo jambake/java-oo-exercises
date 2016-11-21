@@ -86,16 +86,16 @@ public class Student
 		return tuitionTotal;
 	}
 
-	public Student createLegacy(Student x)
+	public Student createLegacy(Student x, Student y)
 	{
-		Student createStudent = new Student(x.getName(), this.getName(), x.getStudentID() + this.getStudentID());
-		createStudent.GPA = (x.getGPA() + this.getGPA()) / 2;
-		if (x.getCredits() > this.getCredits())
+		Student createStudent = new Student(x.getName(), y.getName(), x.getStudentID() + y.getStudentID());
+		createStudent.GPA = (x.getGPA() + y.getGPA()) / 2;
+		if (x.getCredits() > y.getCredits())
 		{
 			createStudent.credits = x.getCredits();
 		}
 		else
-			createStudent.credits = this.getCredits();
+			createStudent.credits = y.getCredits();
 		
 		return createStudent;
 	}
